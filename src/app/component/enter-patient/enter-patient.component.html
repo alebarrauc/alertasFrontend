@@ -1,23 +1,30 @@
+<h1>Registro de Paciente</h1>
+
+<!-- Mostrar el usuario conectado -->
+<p>Usuario conectado: {{ obtenerUsuario() }}</p>
+
+<!-- Formulario para guardar paciente -->
 <form (ngSubmit)="savePatient()">
-  <div>
-    <label for="name">Nombre:</label>
-    <input type="text" id="name" [(ngModel)]="patient.name" name="name" required />
-  </div>
-  <div>
-    <label for="age">Edad:</label>
-    <input type="number" id="age" [(ngModel)]="patient.age" name="age" required />
-  </div>
-  <div>
-    <label for="room">Habitación:</label>
-    <input type="text" id="room" [(ngModel)]="patient.room" name="room" required />
-  </div>
-  <div>
-    <label for="bed">Cama:</label>
-    <input type="text" id="bed" [(ngModel)]="patient.bed" name="bed" required />
-  </div>
-  <div>
-    <label for="registrationDate">Fecha de registro:</label>
-    <input type="date" id="registrationDate" [(ngModel)]="patient.registrationDate" name="registrationDate" required />
-  </div>
+  <label for="name">Nombre:</label>
+  <input id="name" [(ngModel)]="patient.name" name="name" required />
+
+  <label for="age">Edad:</label>
+  <input id="age" type="number" [(ngModel)]="patient.age" name="age" required />
+
+  <label for="room">Habitación:</label>
+  <input id="room" [(ngModel)]="patient.room" name="room" />
+
+  <label for="bed">Cama:</label>
+  <input id="bed" [(ngModel)]="patient.bed" name="bed" />
+
+  <label for="registrationDate">Fecha de Registro:</label>
+  <input id="registrationDate" type="date" [(ngModel)]="patient.registrationDate" name="registrationDate" />
+
   <button type="submit">Guardar Paciente</button>
 </form>
+
+<!-- Botón para llamar al backend -->
+<h4><button (click)="llamarBackend()">Llamar backend</button></h4>
+
+<!-- Mostrar respuesta del backend -->
+<h4>Response backend: {{ mostrarResponseBackend() | json }}</h4>
