@@ -1,25 +1,21 @@
-
-<div>
-    <div>
-        <!-- Encabezado con Logo -->
-        <div>
-            <p>Alertas médicas</p>
-        </div>
-
-        <!-- Cuerpo -->
-        <div class="card-body">
-
-            <!-- Botones -->
-            <button>
-                Iniciar Sesión
-            </button>
-            <button>
-                Cerrar Sesión
-            </button>
-        </div>
-
-        <!-- Footer -->
-        <div class="card-footer">
-            <p>© 2025 Front-Duoc-Azure. Todos los derechos reservados.</p>
-        </div>
+<div class="login-container">
+    <!-- Encabezado con Logo -->
+    <div class="card-header">
+        <p>Alertas médicas</p>
     </div>
+
+    <!-- Cuerpo -->
+    <div class="card-body">
+        <p *ngIf="!isLoggedIn">Por favor, inicie sesión para acceder al sistema.</p>
+        <p *ngIf="isLoggedIn">Sesión iniciada correctamente.</p>
+
+        <!-- Botones -->
+        <button *ngIf="!isLoggedIn" (click)="login()">Iniciar Sesión</button>
+        <button *ngIf="isLoggedIn" (click)="logout()">Cerrar Sesión</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="card-footer">
+        <p>© 2025 Front-Duoc-Azure. Todos los derechos reservados.</p>
+    </div>
+</div>
