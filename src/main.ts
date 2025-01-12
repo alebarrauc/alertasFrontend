@@ -20,7 +20,8 @@ const msalInstance = new PublicClientApplication({
     redirectUri: 'http://localhost:4200/', // URI donde redirigir tras el login
   },
   cache: {
-    cacheLocation: 'localStorage', // Guarda la sesión en localStorage (también puedes usar sessionStorage)
+    //cacheLocation: 'localStorage', // Guarda la sesión en localStorage (también puedes usar sessionStorage)
+    cacheLocation: 'sessionStorage', // Cambia a sessionStorage
     storeAuthStateInCookie: false, // Útil para navegadores más antiguos
   },
 });

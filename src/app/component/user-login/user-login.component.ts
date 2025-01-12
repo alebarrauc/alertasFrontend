@@ -17,16 +17,31 @@ export class UserLoginComponent {
 
   login() {
     this.msalService.loginPopup().subscribe({
-      next: (result: AuthenticationResult) => {
-        console.log('Inicio de sesión exitoso:', result);
-        this.msalService.instance.setActiveAccount(result.account);
-        this.isLoggedIn = true;
-      },
-      error: (error) => {
-        console.error('Error en el inicio de sesión:', error);
-      },
+        next: (result: AuthenticationResult) => {
+            console.log('Inicio de sesión exitoso:', result);
+
+            // Establece la cuenta activa
+            this.msalService.instance.setActiveAccount(result.account);
+            this.isLoggedIn = true;
+
+            // Adquiere el token en segundo plano después de iniciar sesión
+            this.msalService.acquireTokenSilent({ scopes: [] }).subscribe({
+                next: (tokenResponse) => {
+                    // Almacena el token en el localStorage
+                    localStorage.setItem('jwt', tokenResponse.idToken);
+                    console.log('Token almacenado en localStorage:', tokenResponse.idToken);
+                },
+                error: (tokenError) => {
+                    console.error('Error al adquirir el token silenciosamente:', tokenError);
+                },
+            });
+        },
+        error: (error) => {
+            console.error('Error en el inicio de sesión:', error);
+        },
     });
-  }
+}
+
 
   logout() {
     this.msalService.logoutPopup().subscribe({
