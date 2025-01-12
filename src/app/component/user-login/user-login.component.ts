@@ -30,6 +30,7 @@ export class UserLoginComponent {
                     // Almacena el token en el localStorage
                     localStorage.setItem('jwt', tokenResponse.idToken);
                     console.log('Token almacenado en localStorage:', tokenResponse.idToken);
+                    console.log('Token JWT:', tokenResponse.idToken);
                 },
                 error: (tokenError) => {
                     console.error('Error al adquirir el token silenciosamente:', tokenError);

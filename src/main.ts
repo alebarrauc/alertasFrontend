@@ -1,12 +1,15 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { importProvidersFrom } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; // Agrega HTTP_INTERCEPTORS
 import { AppComponent } from './app/app.component';
 import { PatientListComponent } from './app/component/patient-list/patient-list.component';
 import { EnterPatientComponent } from './app/component/enter-patient/enter-patient.component';
 import { UserLoginComponent } from './app/component/user-login/user-login.component';
 import { MsalGuard } from '@azure/msal-angular';
+
+// Importa el interceptor
+import { AuthInterceptorInterceptor } from './app/auth-interceptor.interceptor'; // Ruta del interceptor
 
 // MSAL Imports
 import { MsalModule } from '@azure/msal-angular';
@@ -20,9 +23,8 @@ const msalInstance = new PublicClientApplication({
     redirectUri: 'http://localhost:4200/', // URI donde redirigir tras el login
   },
   cache: {
-    //cacheLocation: 'localStorage', // Guarda la sesión en localStorage (también puedes usar sessionStorage)
     cacheLocation: 'sessionStorage', // Cambia a sessionStorage
-    storeAuthStateInCookie: false, // Útil para navegadores más antiguos
+    storeAuthStateInCookie: false,
   },
 });
 
@@ -34,11 +36,11 @@ bootstrapApplication(AppComponent, {
       MsalModule.forRoot(
         msalInstance,
         {
-          interactionType: InteractionType.Popup, // Usa popup para iniciar sesión
-          authRequest: { scopes: ['user.read'] }, // Scopes requeridos
+          interactionType: InteractionType.Popup,
+          authRequest: { scopes: ['user.read'] },
         },
         {
-          interactionType: InteractionType.Redirect, // Usa redirect para APIs protegidas
+          interactionType: InteractionType.Redirect,
           protectedResourceMap: new Map([
             ['https://graph.microsoft.com/v1.0/me', ['user.read']], // Recursos protegidos y sus scopes
           ]),
@@ -47,9 +49,15 @@ bootstrapApplication(AppComponent, {
     ),
     provideRouter([
       { path: '', redirectTo: '/patient-list', pathMatch: 'full' },
-      { path: 'patient-list', component: PatientListComponent}, // Protegida
+      { path: 'patient-list', component: PatientListComponent }, // Protegida
       { path: 'enter-patient', component: EnterPatientComponent, canActivate: [MsalGuard] }, // Protegida
-      { path: 'login-user', component: UserLoginComponent }, // Ruta pública (sin protección)
+      { path: 'login-user', component: UserLoginComponent }, // Ruta pública
     ]),
+    // Registrar el interceptor
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorInterceptor,
+      multi: true, // Permite múltiples interceptores si necesitas más en el futuro
+    },
   ],
 }).catch((err) => console.error(err));
