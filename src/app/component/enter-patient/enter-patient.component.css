@@ -1,0 +1,74 @@
+/* Contenedor del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%; /* Ajustar el ancho del formulario */
+    max-width: 600px;
+    margin: 20px auto; /* Centrar horizontalmente */
+    padding: 20px;
+    background-color: white; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Cada fila del formulario */
+  form > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px; /* Espacio entre filas */
+  }
+  
+  /* Etiquetas */
+  form label {
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #00a9e0; /* Azul vibrante */
+  }
+  
+  /* Campos de entrada */
+  form input {
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #ddd; /* Borde ligero */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  /* Efecto hover y focus en los inputs */
+  form input:focus {
+    border-color: #00a9e0; /* Azul vibrante */
+    box-shadow: 0 0 5px rgba(0, 169, 224, 0.5); /* Sombra azul suave */
+    outline: none;
+  }
+  
+  /* Botón de envío */
+  form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #00a9e0; /* Azul vibrante */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Hover y focus en el botón */
+  form button:hover {
+    background-color: #007bb5; /* Azul más oscuro */
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    form {
+      width: 95%; /* Ajusta el formulario al ancho del dispositivo */
+    }
+  }
+  

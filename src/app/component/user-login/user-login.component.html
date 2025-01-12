@@ -1,0 +1,17 @@
+<div class="login-container">
+    <!-- Encabezado con Logo -->
+    <div class="card-header">
+        <p>Bienvenido</p>
+    </div>
+
+    <!-- Cuerpo -->
+    <div class="card-body">
+        <p *ngIf="!isLoggedIn">Por favor, inicie sesión para acceder al sistema.</p>
+        <p *ngIf="isLoggedIn">Sesión iniciada correctamente.</p>
+
+        <!-- Botones -->
+        <button *ngIf="!isLoggedIn" (click)="login()">Iniciar Sesión</button>
+        <button *ngIf="isLoggedIn" (click)="logout()">Cerrar Sesión</button>
+    </div>
+
+</div>

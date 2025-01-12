@@ -1,0 +1,92 @@
+/* Contenedor principal */
+/* Remover márgenes en el contenedor principal */
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Ajustar márgenes del título */
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0; /* Reduce el espacio superior e inferior */
+    color: #00a9e0;
+  }
+  
+  /* Remover márgenes predeterminados del body */
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Tabla */
+  table {
+    border-collapse: collapse; /* Espaciado entre celdas eliminado */
+    background-color: white;
+    color: black;
+    width: 60%;
+    max-width: 800px;
+    margin-bottom: 0; /* Elimina margen inferior de la tabla */
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 0.8rem; /* Tamaño de fuente reducido */
+  }
+  
+  /* Encabezado de la tabla */
+  table thead tr {
+    background-color: #00a9e0;
+    color: white;
+    text-align: left;
+    font-size: 0.9rem; /* Fuente más pequeña para el encabezado */
+  }
+  
+  table th,
+  table td {
+    padding: 8px 10px; /* Menor espaciado interno */
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  /* Filas alternadas */
+  table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Gris muy claro */
+  }
+  
+  /* Filas en hover */
+  table tbody tr:hover {
+    background-color: #e8f4ff;
+  }
+  
+  /* Estilo de celdas */
+  table td {
+    font-size: 0.8rem; /* Texto más compacto */
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    table {
+      width: 100%;
+    }
+  
+    h2 {
+      font-size: 1.2rem; /* Encabezado más pequeño en pantallas pequeñas */
+    }
+  
+    table th,
+    table td {
+      padding: 6px 8px; /* Espaciado aún más pequeño en pantallas reducidas */
+    }
+  }
+  

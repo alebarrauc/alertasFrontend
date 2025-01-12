@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PatientService } from '../../services/patient.service'; // Importa el servicio
 import { Patient } from '../../model/patient.model'; // Importa el modelo
+import { Router } from '@angular/router'; // Importa Router
 
 @Component({
   selector: 'app-enter-patient',
@@ -19,7 +20,10 @@ export class EnterPatientComponent {
     registrationDate: '',
   };
 
-  constructor(private patientService: PatientService) {} // Inyecta el servicio
+  constructor(
+    private patientService: PatientService, // Inyecta el servicio PatientService
+    private router: Router // Inyecta el servicio Router
+  ) {}
 
   savePatient(): void {
     console.log('Saving patient:', this.patient);
@@ -28,6 +32,9 @@ export class EnterPatientComponent {
     this.patientService.addPatient(this.patient).subscribe(
       (response) => {
         console.log('Paciente guardado exitosamente:', response);
+
+        // Redirigir a la página de listar pacientes
+        this.router.navigate(['/patient-list']); // Cambia la ruta según tu configuración
       },
       (error) => {
         console.error('Error al guardar el paciente:', error);
