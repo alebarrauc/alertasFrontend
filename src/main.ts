@@ -46,7 +46,7 @@ bootstrapApplication(AppComponent, {
     ),
     provideRouter([
       { path: '', redirectTo: '/patient-list', pathMatch: 'full' },
-      { path: 'patient-list', component: PatientListComponent, canActivate: [MsalGuard] }, // Protegida
+      { path: 'patient-list', component: PatientListComponent}, // Protegida
       { path: 'enter-patient', component: EnterPatientComponent, canActivate: [MsalGuard] }, // Protegida
       { path: 'login-user', component: UserLoginComponent }, // Ruta pública (sin protección)
     ]),

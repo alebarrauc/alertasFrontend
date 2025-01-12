@@ -1,66 +1,111 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+
 /* Estilo general del navbar */
 .navbar {
+  background-color: #a2d200; /* Verde vibrante */
+  color: white; /* Texto blanco */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
+
+.navbar-menu {
+  list-style: none; /* Quita el estilo por defecto */
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin: 0 1rem; /* Espaciado entre los elementos */
+}
+
+.navbar-menu a {
+  text-decoration: none; /* Sin subrayado */
+  color: white; /* Texto blanco */
+  font-size: 1rem;
+  transition: color 0.3s; /* Efecto de transición en hover */
+}
+
+.navbar-menu a:hover {
+  color: #f7ff88; /* Amarillo claro al hacer hover */
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-menu li {
+    margin: 0.5rem 0;
+  }
+}
+/* FIN :Estilo general del navbar */
+/* -------------------------------------------------------------------------- */
+  /* Estilo general del footer */
+  
+  /* Footer */
+/* Footer */
+.footer {
+  background-color: #00a9e0; /* Azul vibrante */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  width: 100%;
+  position: relative; /* Permite que esté dentro del flujo del documento */
+  bottom: 0;
+  margin-top: 0; /* Elimina cualquier margen superior */
+}
+  .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #343a40; /* Color oscuro */
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Contenedor del contenido del navbar */
-  .navbar-container {
-    display: flex;
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    justify-content: space-between;
-    align-items: center;
   }
   
-  
-  /* Menú de navegación */
-  .navbar-menu {
-    list-style: none;
-    display: flex;
+  .footer-content p {
     margin: 0;
     padding: 0;
   }
   
-  /* Elementos del menú */
-  .navbar-menu li {
-    margin: 0 1rem;
+  .footer-content .contact-button {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo claro para el botón */
+    color: white; /* Texto blanco */
+    padding: 10px 20px;
+    border-radius: 20px; /* Bordes redondeados */
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
   }
   
-  /* Enlaces del menú */
-  .navbar-menu a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    transition: color 0.3s;
-  }
-  
-  /* Efecto hover en los enlaces */
-  .navbar-menu a:hover {
-    color: #ffc107; /* Color dorado */
+  .footer-content .contact-button:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* Efecto hover más claro */
   }
   
   @media (max-width: 768px) {
-    .navbar {
+    .footer-content {
       flex-direction: column;
-      align-items: flex-start;
+      text-align: center;
     }
   
-    .navbar-menu {
-      flex-direction: column;
-      width: 100%;
-      padding: 0;
-    }
-  
-    .navbar-menu li {
-      margin: 0.5rem 0;
+    .footer-content p {
+      margin-bottom: 10px;
     }
   }
-  
+/* FIN :Estilo general del footer */
+  /* -------------------------------------------------------------------------- */
