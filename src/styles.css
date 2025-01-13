@@ -1,111 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
-
-
-
-
-/* Estilo general del navbar */
+/* NAVBAR */
 .navbar {
-  background-color: #a2d200; /* Verde vibrante */
-  color: white; /* Texto blanco */
+  background-color: white; /* Fondo blanco */
+  border-bottom: 2px solid #00bfff; /* Borde celeste */
+  padding: 10px 20px; /* Espaciado interno */
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  justify-content: space-between;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  font-family: 'Roboto', sans-serif; /* Fuente consistente */
 }
 
-.navbar-menu {
-  list-style: none; /* Quita el estilo por defecto */
+.navbar-container {
   display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.navbar-logo {
+  height: 70px; /* Tamaño más pequeño del logo */
+  margin-right: 15px; /* Reduce el espacio entre el logo y el menú */
+}
+
+/* Menú */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* Espaciado entre los elementos del menú */
   margin: 0;
   padding: 0;
 }
 
-.navbar-menu li {
-  margin: 0 1rem; /* Espaciado entre los elementos */
-}
-
-.navbar-menu a {
+.navbar-menu li a {
   text-decoration: none; /* Sin subrayado */
-  color: white; /* Texto blanco */
-  font-size: 1rem;
-  transition: color 0.3s; /* Efecto de transición en hover */
+  color: #333; /* Color del texto */
+  font-weight: 500; /* Peso medio */
+  font-size: 14px; /* Tamaño de fuente más pequeño */
+  transition: color 0.3s ease; /* Animación al pasar el mouse */
 }
 
-.navbar-menu a:hover {
-  color: #f7ff88; /* Amarillo claro al hacer hover */
+.navbar-menu li a:hover {
+  color: #00bfff; /* Color celeste al pasar el mouse */
 }
 
+/* FOOTER */
+.footer {
+  background-color: #00bfff; /* Color celeste */
+  color: white; /* Texto en blanco */
+  padding: 15px 20px; /* Espaciado interno */
+  text-align: center; /* Centrar el texto */
+  font-family: 'Roboto', sans-serif; /* Fuente consistente */
+  font-size: 14px; /* Tamaño de texto adecuado */
+  border-top: 2px solid white; /* Borde blanco opcional */
+}
+
+.footer-content p {
+  margin: 0; /* Quita márgenes extra */
+  line-height: 1.5; /* Espaciado entre líneas */
+}
+
+/* MEDIA QUERIES PARA RESPONSIVIDAD */
 @media (max-width: 768px) {
+  /* Navbar responsivo */
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Cambia a diseño vertical */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    padding: 10px; /* Reduce el espaciado */
   }
 
   .navbar-menu {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: column; /* Apila los elementos del menú */
+    gap: 10px; /* Reduce el espaciado entre los elementos */
+    width: 100%; /* Ocupa todo el ancho disponible */
   }
 
-  .navbar-menu li {
-    margin: 0.5rem 0;
+  .navbar-menu li a {
+    font-size: 16px; /* Aumenta el tamaño de fuente para mejor legibilidad */
+    padding: 5px 0; /* Añade espaciado vertical */
+  }
+
+  /* Logo responsivo */
+  .navbar-logo {
+    height: 50px; /* Reduce el tamaño del logo */
+    margin-bottom: 10px; /* Añade espacio debajo del logo */
   }
 }
-/* FIN :Estilo general del navbar */
-/* -------------------------------------------------------------------------- */
-  /* Estilo general del footer */
-  
-  /* Footer */
-/* Footer */
-.footer {
-  background-color: #00a9e0; /* Azul vibrante */
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  font-family: Arial, sans-serif;
-  font-size: 0.9rem;
-  width: 100%;
-  position: relative; /* Permite que esté dentro del flujo del documento */
-  bottom: 0;
-  margin-top: 0; /* Elimina cualquier margen superior */
+
+@media (max-width: 480px) {
+  /* Footer responsivo */
+  .footer {
+    font-size: 12px; /* Reduce el tamaño del texto */
+    padding: 10px; /* Reduce el espaciado */
+  }
 }
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .footer-content p {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .footer-content .contact-button {
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo claro para el botón */
-    color: white; /* Texto blanco */
-    padding: 10px 20px;
-    border-radius: 20px; /* Bordes redondeados */
-    text-decoration: none; /* Quita el subrayado */
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .footer-content .contact-button:hover {
-    background-color: rgba(255, 255, 255, 0.4); /* Efecto hover más claro */
-  }
-  
-  @media (max-width: 768px) {
-    .footer-content {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .footer-content p {
-      margin-bottom: 10px;
-    }
-  }
-/* FIN :Estilo general del footer */
-  /* -------------------------------------------------------------------------- */

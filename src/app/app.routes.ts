@@ -9,7 +9,8 @@ export const routes: Routes = [
     },
     {
         path: 'login',
-        loadComponent: () => import('./component/user-login/user-login.component').then(c => c.UserLoginComponent)
+        loadComponent: () => import('./component/user-login/user-login.component').then(c => c.UserLoginComponent),
+        canActivate: [AuthGuard]
     },
     {
         path: 'enter-patient',

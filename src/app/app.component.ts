@@ -1,25 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { PatientListComponent } from './component/patient-list/patient-list.component'; // Ruta correcta a tu componente
-import { UserLoginComponent } from './component/user-login/user-login.component'; // Ruta correcta a tu componente
+import { RouterModule, Router } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,RouterModule], // Agregar aquí el componente
+  imports: [CommonModule, RouterModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  constructor(private msalService: MsalService) {
+export class AppComponent implements OnInit {
+  constructor(private msalService: MsalService, private router: Router) {}
+
+  ngOnInit(): void {
     const account = this.msalService.instance.getActiveAccount();
+
     if (!account) {
-      // Si no hay cuenta activa, redirigir al login o cerrar sesión
-      this.msalService.logoutRedirect();
+      // Si no hay cuenta activa, redirigir al login
+      console.warn('No hay cuenta activa, redirigiendo al login.');
+      this.router.navigate(['/login-user']);
     }
   }
-
-  
 }

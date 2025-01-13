@@ -1,4 +1,3 @@
-<h1>Registro de Paciente</h1>
 
 <!-- Mostrar el usuario conectado -->
 <p>Usuario conectado: {{ obtenerUsuario() }}</p>
@@ -23,8 +22,3 @@
   <button type="submit">Guardar Paciente</button>
 </form>
 
-<!-- Botón para llamar al backend -->
-<h4><button (click)="llamarBackend()">Llamar backend</button></h4>
-
-<!-- Mostrar respuesta del backend -->
-<h4>Response backend: {{ mostrarResponseBackend() | json }}</h4>
