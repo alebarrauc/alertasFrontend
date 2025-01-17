@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './enter-patient.component.html',
   styleUrls: ['./enter-patient.component.css'],
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule],
 })
 export class EnterPatientComponent {
   patient: Patient = {
@@ -24,6 +24,7 @@ export class EnterPatientComponent {
   };
 
   responseBackend: object = {}; // Inicialización de la propiedad para evitar errores
+  nameError = false; // Propiedad para rastrear errores en el campo 'name'
 
   constructor(
     private patientService: PatientService, // Inyecta el servicio PatientService
@@ -38,6 +39,12 @@ export class EnterPatientComponent {
   }
 
   savePatient(): void {
+    // Valida si el campo 'name' está vacío antes de guardar
+    if (!this.patient.name) {
+      this.nameError = true; // Activa el mensaje de error
+      return;
+    }
+
     console.log('Saving patient:', this.patient);
 
     // Llama al método addPatient del servicio
@@ -52,6 +59,15 @@ export class EnterPatientComponent {
         console.error('Error al guardar el paciente:', error);
       }
     );
+  }
+
+  validateField(fieldName: string): void {
+    // Valida si el campo 'name' está vacío al perder el foco
+    if (fieldName === 'name' && !this.patient.name) {
+      this.nameError = true; // Activa el mensaje de error
+    } else {
+      this.nameError = false; // Desactiva el mensaje de error si está completo
+    }
   }
 
   obtenerUsuario(): string {

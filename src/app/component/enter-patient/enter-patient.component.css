@@ -72,3 +72,45 @@ form {
     }
   }
   
+ /* Estilo para el mensaje de error */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Resaltar el borde del campo con error */
+.invalid-input {
+  border: 2px solid red; /* Borde rojo para campos inválidos */
+  background-color: #ffe6e6; /* Fondo ligeramente rosado */
+}
+
+/* Estilo para campos válidos (opcional) */
+.valid-input {
+  border: 2px solid green; /* Borde verde para campos válidos */
+  background-color: #e6ffe6; /* Fondo ligeramente verde */
+}
+
+/* Estilo general de los campos de entrada */
+input {
+  margin: 5px 0;
+  padding: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}

@@ -5,21 +5,66 @@
 
 <!-- Formulario para guardar paciente -->
 <form (ngSubmit)="savePatient()">
-  <label for="name">Nombre:</label>
-  <input id="name" [(ngModel)]="patient.name" name="name" required />
+  <!-- Campo Nombre -->
+  <div>
+    <label for="name">Nombre:</label>
+    <input
+      id="name"
+      [(ngModel)]="patient.name"
+      name="name"
+      required
+      (blur)="validateField('name')"
+    />
+    <!-- Mensaje de error dinámico -->
+    <div *ngIf="nameError" class="error-message">
+      El campo Nombre es obligatorio.
+    </div>
+  </div>
 
-  <label for="age">Edad:</label>
-  <input id="age" type="number" [(ngModel)]="patient.age" name="age" required />
+  <!-- Campo Edad -->
+  <div>
+    <label for="age">Edad:</label>
+    <input
+      id="age"
+      type="number"
+      [(ngModel)]="patient.age"
+      name="age"
+      required
+    />
+  </div>
 
-  <label for="room">Habitación:</label>
-  <input id="room" [(ngModel)]="patient.room" name="room" />
+  <!-- Campo Habitación -->
+  <div>
+    <label for="room">Habitación:</label>
+    <input
+      id="room"
+      [(ngModel)]="patient.room"
+      name="room"
+    />
+  </div>
 
-  <label for="bed">Cama:</label>
-  <input id="bed" [(ngModel)]="patient.bed" name="bed" />
+  <!-- Campo Cama -->
+  <div>
+    <label for="bed">Cama:</label>
+    <input
+      id="bed"
+      [(ngModel)]="patient.bed"
+      name="bed"
+    />
+  </div>
 
-  <label for="registrationDate">Fecha de Registro:</label>
-  <input id="registrationDate" type="date" [(ngModel)]="patient.registrationDate" name="registrationDate" />
+  <!-- Campo Fecha de Registro -->
+  <div>
+    <label for="registrationDate">Fecha de Registro:</label>
+    <input
+      id="registrationDate"
+      type="date"
+      [(ngModel)]="patient.registrationDate"
+      name="registrationDate"
+    />
+  </div>
 
+  <!-- Botón Guardar -->
   <button type="submit">Guardar Paciente</button>
 </form>
 
